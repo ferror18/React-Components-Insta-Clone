@@ -10,7 +10,7 @@ const PostsPage = (props) => {
   return (
     <div className="posts-container-wrapper">
       {postsArr.map(post => {
-        return <Post post={post}/>
+        return <Post key={postsArr.indexOf(post)}post={post}/>
       })}
     </div>
   );

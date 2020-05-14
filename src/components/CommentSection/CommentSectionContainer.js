@@ -12,6 +12,7 @@ const CommentSection = props => {
       {comments.map(comment => {
         return (<Comment 
           comment={comment}
+          key={comments.indexOf(comment)}
           />)
       })}
       <CommentInput />

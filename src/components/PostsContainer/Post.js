@@ -10,8 +10,14 @@ import "./Posts.css";
 const Post = props => {
   const [ likes, setLikes] = useState(props.post.likes);
   let [ liked, setLiked] = useState(false)
-  const toggleLike = function () {
-    return setLiked(!liked)
+  function toggleLike(event) {
+    if (liked === false) {
+      setLiked(!liked)
+      return setLikes(likes+1)
+    }else{
+      setLiked(!liked)
+      return setLikes(likes-1)
+    }
   }
   return (
     <div className="post-border">
@@ -31,7 +37,7 @@ const Post = props => {
       <LikeSection  
        likes={likes}
        liked={liked}
-       onClick={toggleLike} />
+       toggleLike={toggleLike} />
       <CommentSection
         postId={props.post.imageUrl}
         comments={props.post.comments}
